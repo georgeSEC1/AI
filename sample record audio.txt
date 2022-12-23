@@ -1,0 +1,29 @@
+sample code, adapt for analog signals
+def recordData(ngram,stress,dataFile):#Adversarial training between easy and difficult n-grams, full 2d grapheme differentiation...
+    print("recording...")
+    ser = serial.Serial(com, baud, timeout = 0.1) 
+    record = ""
+    i = 1
+    while ser.isOpen():
+        var = ser.readline().decode('utf-8')
+        if len(var) > 0:
+            record += var.strip() + ","
+            if i == partition*sampleSize:
+                break
+            i+=1
+    record = np.array(record[:-1].split(","))
+    record = record.reshape(partition, sampleSize)
+    record = record.tolist()
+    total = ""
+    for line in record:
+        total += ','.join(line) + ","+ str(stress)+"\n"  
+    testX = open(dataFile, "a", encoding="utf8")
+    testX.write(total)
+    testX.close()
+    try:
+        testX = open(str(stress) + " " + ngram+".dat", "w", encoding="utf8")
+        testX.write(total)
+        testX.close()
+    except:
+        False
+    return dataFile
