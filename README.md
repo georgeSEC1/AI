@@ -1,1 +1,1 @@
-squeeze audio data with mean values to fit neural network. Use Markov model for simulation.
+squeeze audio data with mean values and convert to binary to fit neural network.
