@@ -52,12 +52,14 @@ def process(file):
     for i in range(len(words)-3):
         if len(words[i-1]) > 5 and len(words[i+1]) > 5 and words[i] == db[random.randint(0,len(db)-1)] and len(words[i-2]) > 5:
             db.append(words[i-1])
-            print( words[i-1] + " " + dbX[random.randint(0,len(dbX)-1)] + " " + words[i+1] + " " + dbY[random.randint(0,len(dbY)-1)] + " " + words[i-2])
+            var = words[i-1] + " " + dbX[random.randint(0,len(dbX)-1)] + " " + words[i+1] + " " + dbY[random.randint(0,len(dbY)-1)] + " " + words[i-2] + "\n"
+            string += var
+            print(var )
     return string 
 with open("fileList.conf", encoding='ISO-8859-1') as f:
     files = f.readlines()
 print("SynthReason - Synthetic logic")
-filename = "Compendium#" + str(random.randint(0,10000000)) + ".txt"
+filename = "logic.conf"
 random.shuffle(files)
 for file in files:
     selection = []
@@ -67,5 +69,3 @@ for file in files:
     f.write(sync)
     f.write("\n")
     f.close()
-    if len(convert(sync)) >= 0:
-        break
