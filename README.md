@@ -1,1 +1,1 @@
-squeeze audio data with mean values and convert to binary to fit neural network.
+//TODO, record series of microphone datums, reshape neural network, squeeze datums into sizable array with mean variables, convert to binary segments, trim excess data, nn training, recognise sounds, do KB logic, implement NN accuracy, autolearning optimisation and auto categorisation, add advice text output, sentiment analysis for guidance(commands)
